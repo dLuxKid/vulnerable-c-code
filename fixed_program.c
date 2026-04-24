@@ -1,19 +1,22 @@
 #include <stdio.h>
 #include <string.h>
 
-void access_granted() {
+void access_granted()
+{
   printf("\n====================================\n");
   printf("ACCESS GRANTED - Welcome, authorized user!\n");
   printf("====================================\n\n");
 }
 
-void access_denied() {
+void access_denied()
+{
   printf("\n====================================\n");
   printf("ACCESS DENIED - Incorrect password.\n");
   printf("====================================\n\n");
 }
 
-int main() {
+int main()
+{
   // Fixed: Larger buffer with extra space for safety
   char password[32];     // Much safer size (32 bytes)
   int authenticated = 0; // Authentication flag
@@ -23,7 +26,8 @@ int main() {
 
   // FIXED: Use fgets() instead of gets()
   // fgets() prevents buffer overflow by limiting input size
-  if (fgets(password, sizeof(password), stdin) == NULL) {
+  if (fgets(password, sizeof(password), stdin) == NULL)
+  {
     printf("Error reading input.\n");
     return 1;
   }
@@ -34,14 +38,18 @@ int main() {
   printf("\nPassword received.\n");
 
   // Simple password check (for demonstration)
-  if (strcmp(password, "letmein") == 0) {
+  if (strcmp(password, "letmein") == 0)
+  {
     authenticated = 1;
   }
 
   // Check authentication
-  if (authenticated == 1) {
+  if (authenticated == 1)
+  {
     access_granted();
-  } else {
+  }
+  else
+  {
     access_denied();
   }
 
